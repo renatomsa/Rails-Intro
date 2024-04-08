@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :todos
   # Defining root
   root 'home#index'
   
