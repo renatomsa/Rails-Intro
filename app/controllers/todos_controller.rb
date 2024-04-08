@@ -10,6 +10,7 @@ class TodosController < ApplicationController
   def show
     @task = Task.new
     @tasks = @todo.tasks
+    @progress = @todo.progress
   end
 
   # GET /todos/new
