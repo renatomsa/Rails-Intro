@@ -1,0 +1,8 @@
+<div class="card mb-3">
+  <div class="card-header">
+    Criado em: <%= todo.created_at.strftime("%d/%m/%Y") %>  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= todo.name %></h5>
+    <%= link_to "Show this todo", todo, class: "btn btn-dark" %>
+  </div>
+</div>

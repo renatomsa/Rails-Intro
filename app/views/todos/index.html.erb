@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Todos</h1>
-
-<div id="todos">
-  <% @todos.each do |todo| %>
-    <%= render todo %>
-    <p>
-      <%= link_to "Show this todo", todo %>
-    </p>
-  <% end %>
+<div class="d-flex justify-content-center mb-5">
+  <h1>To do Lists</h1>
 </div>
 
-<%= link_to "New todo", new_todo_path %>
+
+<div class="mb-4" id="todos">
+  <%= render partial: 'todo_card', collection: @todos, as: :todo %>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "New todo", new_todo_path, class: "btn btn-success" %>
+</div>
