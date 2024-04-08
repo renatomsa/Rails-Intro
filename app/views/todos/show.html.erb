@@ -4,16 +4,28 @@
 
 <% @tasks.each do |task| %></p>
 
-  <p><%= task.title %>
+  <% if task.done == true %>
+  <strike>
+    <p><%= task.title %></p>
+  </strike>
     <%= form_for task do |f| %>
         <%= f.check_box :done, :value => task.done %>
-      <%= f.submit "Done" %>
+      <%= f.submit "Undo" %>
     <% end %>
+
+  <% elsif task.done == false %>
+    <p><%= task.title %></p>
+    <%= form_for task do |f| %>
+          <%= f.check_box :done, :value => task.done %>
+        <%= f.submit "Done" %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= form_for @task do |f| %>
   <p><%= f.text_field :title %></p>
 
+  <%= f.hidden_field :done, :value => false %>
   <%= f.hidden_field :todo_id, :value => @todo.id %>
 
   <%= f.submit "Add Task" %>
