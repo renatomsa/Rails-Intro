@@ -9,7 +9,7 @@ class TodosController < ApplicationController
   # GET /todos/1 or /todos/1.json
   def show
     @task = Task.new
-    @todos = @todo.tasks
+    @tasks = @todo.tasks
   end
 
   # GET /todos/new
