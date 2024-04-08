@@ -20,6 +20,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    if @task.destroy
+      redirect_to todo_path(@task.todo_id), notice: 'Task was successfully deleted.'
+    else
+      redirect_to todo_path(@task.todo_id), alert: 'Task could not be deleted.'
+    end
+  end
+
+
   private
 
   def task_params

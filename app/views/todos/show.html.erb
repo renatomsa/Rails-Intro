@@ -20,6 +20,8 @@
         <%= f.submit "Done" %>
     <% end %>
   <% end %>
+
+  <%= button_to "Delete", task_path(task), method: :delete %>
 <% end %>
 
 <%= form_for @task do |f| %>
