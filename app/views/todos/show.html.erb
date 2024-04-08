@@ -2,6 +2,21 @@
 
 <%= render @todo %>
 
+<% @todos.each do |todo| %></p>
+
+  <p><%= todo.title %>
+<% end %>
+
+<%= form_for @task do |f| %>
+  <p><%= f.text_field :title %></p>
+
+  <%= f.check_box :done %>
+
+  <%= f.number_field :todo_id, :value => @todo.id %>
+
+  <%= f.submit "Add Task" %>
+<% end %>
+
 <div>
   <%= link_to "Edit this todo", edit_todo_path(@todo) %> |
   <%= link_to "Back to todos", todos_path %>
