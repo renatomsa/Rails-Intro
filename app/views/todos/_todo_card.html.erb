@@ -6,6 +6,11 @@
     <div class="progress mb-4 mt-4" role="progressbar" aria-label="Default striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
       <div class="progress-bar progress-bar-striped" role="progressbar" style="width: <%= todo.progress %>%" aria-valuenow="<%= todo.progress %>" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-    <%= link_to "Show this todo", todo, class: "btn btn-dark" %>
+    <div class="d-flex">
+      <%= link_to "Show this todo", todo, class: "btn btn-dark", style: "margin-right: 10px" %>
+      <%= button_to todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+        Delete
+      <% end %>
+    </div>
   </div>
 </div>
