@@ -23,9 +23,9 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     if @task.destroy
-      redirect_to todo_path(@task.todo_id), notice: 'Task was successfully deleted.'
+      redirect_to todo_path(@task.todo_id), notice: 'Tarefa excluída.'
     else
-      redirect_to todo_path(@task.todo_id), alert: 'Task could not be deleted.'
+      redirect_to todo_path(@task.todo_id), alert: 'Tarefa não pôde ser excluída.'
     end
   end
 
