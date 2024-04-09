@@ -8,24 +8,24 @@
 
       <% if task.done == true %>
 
-          <label class="form-check-label" for="firstCheckboxStretched"><strike><%= task.title %></strike></label>
+        <label class="form-check-label", style="margin-right: auto", for="firstCheckboxStretched"><strike><%= task.title %></strike></label>
 
         <%= form_for task do |f| %>
           <%= f.hidden_field :done, :value => false %>
           <%= f.submit "Não Realizado", class: "btn btn-warning" %>
-          <%= button_to "Exluir", task_path(task), method: :delete, class: "btn btn-danger" %>
         <% end %>
 
       <% elsif task.done == false %>
-        <label class="form-check-label" for="firstCheckboxStretched"><%= task.title %></label>
+
+        <label class="form-check-label", style="margin-right: auto;" for="firstCheckboxStretched"><%= task.title %></label>
 
         <%= form_for task do |f| %>
           <%= f.hidden_field :done, :value => true %>
           <%= f.submit "Realizado", class: "btn btn-success" %>
-          <%= button_to "Excluir", task_path(task), method: :delete, class: "btn btn-danger" %>
         <% end %>
 
       <% end %>
+      <%= button_to "Excluir", task_path(task), method: :delete, class: "btn btn-danger", style: "margin-left: 10px;" %>
     </li>
   <% end %>
 </ul>
