@@ -1,6 +1,6 @@
 # TO-DO 360
 
-### This is a basic todo App made with Ruby on Rails framework, constituting of simple logic between MVC architecture and well-structured made-without-prototipe UI using Bootstrap
+### This is a basic todo App made with Ruby on Rails framework, consisting of simple logic between MVC architecture and well-structured made-without-prototipe UI using Bootstrap
 
 #### Feel free to contribute!
 
