@@ -1,10 +1,13 @@
-<h1>Editing todo</h1>
+</br>
+</br>
+
+<h1 style="text-align: center; margin-bottom: 20px;">Editing todo</h1>
 
 <%= render "form", todo: @todo %>
 
 <br>
 
-<div>
-  <%= link_to "Show this todo", @todo %> |
-  <%= link_to "Back to todos", todos_path %>
+<div class="d-flex justify-content-center mt-5" style="gap: 20px;">
+  <%= link_to "Show this todo", @todo, class: "btn btn-outline-primary" %>
+  <%= link_to "Back to todos", todos_path, class: "btn btn-outline-dark" %>
 </div>
