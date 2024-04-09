@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :name, class: 'form-control', id: 'todo_name', placeholder: 'Enter todo name' %>
+    <%= form.label :name, 'Nome', for: 'todo_name' %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="d-flex w-100 justify-content-center">
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>
