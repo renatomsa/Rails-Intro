@@ -18,3 +18,8 @@ Things you may want to cover:
 
 ``` rails s``` -> starting the server
 > Go to localhost:3000
+
+***
+***
+
+Made by Renato Serrano.
