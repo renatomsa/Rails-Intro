@@ -17,15 +17,20 @@
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/todos">Criar lista</a>
+            <%= link_to "Criar Lista", todos_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Listas
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+
+              <% @todos.each do |t| %>
+                <li>
+                  <%= link_to t.name, todo_path(t),  class: "dropdown-item" %>
+                </li>
+              <% end %>
+
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -33,10 +38,6 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-success" type="submit">Search</button>
-        </form>
       </div>
     </div>
   </div>
