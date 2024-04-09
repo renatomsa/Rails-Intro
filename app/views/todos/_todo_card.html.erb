@@ -1,0 +1,16 @@
+<div class="card mb-3">
+  <div class="card-header">
+    Criado em: <%= todo.created_at.strftime("%d/%m/%Y") %>  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= todo.name %></h5>
+    <div class="progress mb-4 mt-4" role="progressbar" aria-label="Animated striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" role="progressbar" style="width: <%= todo.progress %>%" aria-valuenow="<%= todo.progress %>" aria-valuemin="0" aria-valuemax="100"><b><%= todo.progress %>%</b></div>
+    </div>
+    <div class="d-flex">
+      <%= link_to "Mostrar To-do", todo, class: "btn btn-dark", style: "margin-right: 10px" %>
+      <%= button_to todo_path(todo), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+        Excluir
+      <% end %>
+    </div>
+  </div>
+</div>

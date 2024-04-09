@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .carousel-item img {
+.carousel-item img {
   width: 888px;
   height: 500px;
   max-height: 500px;

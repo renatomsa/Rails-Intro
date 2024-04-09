@@ -1,0 +1,4 @@
+pt-BR:
+  date:
+    formats:
+      custom: "%d/%m/%Y" # This is the format you want: day/month/year

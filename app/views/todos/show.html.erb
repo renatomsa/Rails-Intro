@@ -1,0 +1,61 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @todo %>
+
+<ul class="list-group mb-5">
+  <% @tasks.each do |task| %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+
+      <% if task.done == true %>
+
+          <label class="form-check-label" for="firstCheckboxStretched"><strike><%= task.title %></strike></label>
+
+        <%= form_for task do |f| %>
+          <%= f.hidden_field :done, :value => false %>
+          <%= f.submit "Não Realizado", class: "btn btn-warning" %>
+          <%= button_to "Exluir", task_path(task), method: :delete, class: "btn btn-danger" %>
+        <% end %>
+
+      <% elsif task.done == false %>
+        <label class="form-check-label" for="firstCheckboxStretched"><%= task.title %></label>
+
+        <%= form_for task do |f| %>
+          <%= f.hidden_field :done, :value => true %>
+          <%= f.submit "Realizado", class: "btn btn-success" %>
+          <%= button_to "Excluir", task_path(task), method: :delete, class: "btn btn-danger" %>
+        <% end %>
+
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<h3 style="text-align: center"> Adicionar Tarefa </h3>
+
+<section class="d-flex flex-column align-items-center">
+  <%= form_for @task, html: { class: "w-100" } do |f| %>
+
+    <div class="form-floating mb-3">
+      <%= f.text_field :title, class: 'form-control', id: 'task_title', placeholder: 'Enter task title' %>
+      <%= f.label :title, 'Tarefa', for: 'task_title' %>
+    </div>
+
+    <%= f.hidden_field :done, value: false %>
+    <%= f.hidden_field :todo_id, value: @todo.id %>
+
+    <div class="d-flex justify-content-center w-100">
+      <%= f.submit "Adicionar", class: "btn btn-success" %>
+    </div>
+
+  <% end %>
+
+  <div class="d-flex mt-5 w-100 justify-content-between" style="gap: 20px;">
+    <div>
+      <%= link_to "Editar", edit_todo_path(@todo), class: "btn btn-outline-primary" %>
+      <%= link_to "Voltar", todos_path, class: "btn btn-outline-dark" %>
+    </div>
+    <div>
+      <%= button_to "Excluir Lista", @todo, method: :delete, form: { class: "d-inline" }, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+    </div>
+  </div>
+</section>

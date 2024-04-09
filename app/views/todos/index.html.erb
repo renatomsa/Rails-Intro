@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+<div class="d-flex align-items-center flex-column mb-5">
+  <h1>To do Lists</h1>
+  <h6> gerencie suas listas! </h6>
+</div>
+
+
+<div class="mb-4" id="todos">
+  <%= render partial: 'todo_card', collection: @todos, as: :todo %>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%= link_to "Nova Lista", new_todo_path, class: "btn btn-success" %>
+</div>
