@@ -1,24 +1,20 @@
-# README
+# TO-DO 360
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### This is a basic todo App made with Ruby on Rails framework, constituting of simple logic between MVC architecture and well-structured made-without-prototipe UI using Bootstrap
+
+#### Feel free to contribute!
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 3.0.2
 
-* System dependencies
+* Rails version: 7.1.3
 
-* Configuration
+* Bootstrap version: 5.3.3
 
-* Database creation
+***
 
-* Database initialization
+> How to run:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+``` rails s``` -> starting the server
+> Go to localhost:3000
