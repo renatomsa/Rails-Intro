@@ -12,8 +12,8 @@
 
         <%= form_for task do |f| %>
           <%= f.hidden_field :done, :value => false %>
-          <%= f.submit "Not Done", class: "btn btn-warning" %>
-          <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-danger" %>
+          <%= f.submit "Não Realizado", class: "btn btn-warning" %>
+          <%= button_to "Exluir", task_path(task), method: :delete, class: "btn btn-danger" %>
         <% end %>
 
       <% elsif task.done == false %>
@@ -21,8 +21,8 @@
 
         <%= form_for task do |f| %>
           <%= f.hidden_field :done, :value => true %>
-          <%= f.submit "Done", class: "btn btn-success" %>
-          <%= button_to "Delete", task_path(task), method: :delete, class: "btn btn-danger" %>
+          <%= f.submit "Realizado", class: "btn btn-success" %>
+          <%= button_to "Excluir", task_path(task), method: :delete, class: "btn btn-danger" %>
         <% end %>
 
       <% end %>
@@ -37,25 +37,25 @@
 
     <div class="form-floating mb-3">
       <%= f.text_field :title, class: 'form-control', id: 'task_title', placeholder: 'Enter task title' %>
-      <%= f.label :title, 'Task Title', for: 'task_title' %>
+      <%= f.label :title, 'Tarefa', for: 'task_title' %>
     </div>
 
     <%= f.hidden_field :done, value: false %>
     <%= f.hidden_field :todo_id, value: @todo.id %>
 
     <div class="d-flex justify-content-center w-100">
-      <%= f.submit "Add Task", class: "btn btn-success" %>
+      <%= f.submit "Adicionar", class: "btn btn-success" %>
     </div>
 
   <% end %>
 
   <div class="d-flex mt-5 w-100 justify-content-between" style="gap: 20px;">
     <div>
-      <%= link_to "Edit", edit_todo_path(@todo), class: "btn btn-outline-primary" %>
-      <%= link_to "Back", todos_path, class: "btn btn-outline-dark" %>
+      <%= link_to "Editar", edit_todo_path(@todo), class: "btn btn-outline-primary" %>
+      <%= link_to "Voltar", todos_path, class: "btn btn-outline-dark" %>
     </div>
     <div>
-      <%= button_to "Destroy", @todo, method: :delete, form: { class: "d-inline" }, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+      <%= button_to "Excluir Lista", @todo, method: :delete, form: { class: "d-inline" }, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
     </div>
   </div>
 </section>
