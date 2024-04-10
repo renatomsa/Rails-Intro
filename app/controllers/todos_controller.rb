@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
   before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy, :show]
 
   # GET /todos or /todos.json
   def index
@@ -15,7 +17,8 @@ class TodosController < ApplicationController
 
   # GET /todos/new
   def new
-    @todo = Todo.new
+    #@todo = Todo.new
+    @todo = current_user.todos.build
   end
 
   # GET /todos/1/edit
@@ -24,7 +27,8 @@ class TodosController < ApplicationController
 
   # POST /todos or /todos.json
   def create
-    @todo = Todo.new(todo_params)
+    #@todo = Todo.new(todo_params)
+    @todo = current_user.todos.build(todo_params)
 
     respond_to do |format|
       if @todo.save
@@ -60,6 +64,11 @@ class TodosController < ApplicationController
     end
   end
 
+  def correct_user
+    @todo = current_user.todos.find_by(id: params[:id])
+    redirect_to todos_path, notice: "Não Autorizado" if @todo.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo
@@ -68,6 +77,6 @@ class TodosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_params
-      params.require(:todo).permit(:name)
+      params.require(:todo).permit(:name, :user_id)
     end
 end
