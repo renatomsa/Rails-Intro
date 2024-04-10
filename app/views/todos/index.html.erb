@@ -5,7 +5,14 @@
 
 
 <div class="mb-4" id="todos">
-  <%= render partial: 'todo_card', collection: @todos, as: :todo %>
+  <% if @todos.present? && current_user.present? %>
+    <% @todos.each do |todo| %>
+      <% if todo.user_id == current_user.id %>
+        <%= render partial: 'todo_card', locals: { todo: todo } %>
+      <% end %>
+    <% end %>
+  <% end %>
+
 </div>
 
 <div class="d-flex justify-content-center">

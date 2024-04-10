@@ -14,25 +14,43 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active mb-2" aria-current="page" href="/">Home</a>
           </li>
-          <li class="nav-item">
-            <%= link_to "Criar Lista", todos_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Listas
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
 
-              <% @todos.each do |t| %>
-                <li>
-                  <%= link_to t.name, todo_path(t),  class: "dropdown-item" %>
-                </li>
-              <% end %>
-
-            </ul>
-          </li>
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "To-dos", todos_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Editar Perfil", edit_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item mb-2">
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Listas
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <% if @todos.present? %>
+                  <% @todos.each do |t| %>
+                    <% if t.user_id == current_user.id %>
+                      <li>
+                        <%= link_to t.name, todo_path(t),  class: "dropdown-item" %>
+                      </li>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>

@@ -15,6 +15,7 @@
   <div class="form-floating mb-3">
     <%= form.text_field :name, class: 'form-control', id: 'todo_name', placeholder: 'Enter todo name' %>
     <%= form.label :name, 'Nome', for: 'todo_name' %>
+    <%= form.number_field :user_id, id: :todo_user_id, class: "form-control", value: current_user.id, type: :hidden %>
   </div>
 
   <div class="d-flex w-100 justify-content-center">

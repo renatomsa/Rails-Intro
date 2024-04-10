@@ -1,5 +1,6 @@
 class Todo < ApplicationRecord
   has_many :tasks, dependent: :destroy
+  belongs_to :user
 
   def progress
     return 0 if tasks.empty?
